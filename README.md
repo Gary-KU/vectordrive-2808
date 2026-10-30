@@ -1,8 +1,10 @@
-# FluxNest FOC · 磁巢
+# VectorDrive 2808 · 矢驱 2808
 
-基于嘉立创 EDA 专业版工程 `new_back_foc_small` 整理的 FOC 电机控制硬件项目。
+面向 **2808 电机**的紧凑型 FOC 驱动板，支持**电流环与速度环控制**。
 
-Flux 代表磁通，Nest 代表承载电机控制设计的紧凑平台。
+VectorDrive 对应矢量控制驱动，2808 标明适配的电机型号。
+
+硬件设计采用嘉立创 EDA 专业版，源工程名称为 `new_back_foc_small`。
 
 ## 设计预览
 
