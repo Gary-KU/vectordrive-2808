@@ -92,6 +92,12 @@ Keil 入口为 [GimbalFOC.uvprojx](software/MDK-ARM/GimbalFOC.uvprojx)。GCC 输
 - **布局：** 四层板与参考平面；未宣称已经通过 EMI 或串扰测试。
 - **调试：** 历史记录包含 DRV8313 修复、电流采样排查、同步采样时序与编码器 I²C 恢复；本次补充真实 CAN 和正反向电流数据。[电流闭环调试记录](docs/CURRENT_LOOP_BRINGUP.md)
 
+### 实物装配
+
+驱动板与电机的装配实拍。
+
+<img src="docs/images/board-motor-assembly.jpg" alt="VectorDrive 驱动板与电机装配实拍" width="600">
+
 ### PCB 铜层视图
 
 以下为本次提供的四张 PCB 视图，按提供顺序排列；点击图片可查看原图。
