@@ -4,11 +4,24 @@
 
 [**下载 Windows 上位机与固件**](https://github.com/Gary-KU/vectordrive-2808/releases/latest) · [**实板性能报告**](docs/PERFORMANCE_20261102.md) · [上位机说明](docs/CAN_WORKBENCH.md) · [CAN 协议](docs/CAN_PROTOCOL.md) · [固件构建](FIRMWARE_GUIDE.md)
 
+## 最新排查：短脉冲跟随与调度修复
+
+原固件 / 原 PI / 原保护不变，12 次 0.22 s 短脉冲复测中，±100 mA 平均反馈为 **+99.98 / −100.15 mA**。同时修复 Windows 粗时钟问题，指令发送间隔中位从约 **16.3 ms 降至 10.2～10.5 ms**；上位机现在明确提示转速报文超量程。
+
+![短脉冲电流跟随实测](docs/images/performance-20261102-followup/short-current.png)
+
+[排查结论、时钟对照与原始证据](docs/CURRENT_DIAGNOSIS_20261102.md)。本次缩短了测试时长，未证明高速/持续带载性能提升；旧 0.8 s 加速测试的限压问题仍需进一步验证。
+
+<details>
+<summary>展开首次测试性能总览</summary>
+
 ![VectorDrive 2808 实测性能曲线](docs/images/performance-20261102/overview.png)
+
+</details>
 
 [电流跟随全图](docs/images/performance-20261102/current-tracking.png) · [CAN 延迟与反馈周期](docs/images/performance-20261102/can-performance.png) · [断流停机曲线](docs/images/performance-20261102/timeout-stop.png)
 
-## 实测性能，一眼看懂
+## 首次测试基线
 
 2026-11-02，2808 / 7 极对 / 节点 7，DAPLink + PCAN-USB 实板测试：
 

@@ -1,0 +1,62 @@
+{
+  "legacy": [
+    {
+      "target_a": 0.05,
+      "mean_iq_a": 0.049683333333333336,
+      "mean_rmse_a": 0.003986015662109681,
+      "median_interval_ms": 16.363333333326107,
+      "max_interval_ms": 20.39650000006077
+    },
+    {
+      "target_a": -0.05,
+      "mean_iq_a": -0.0491219298245614,
+      "mean_rmse_a": 0.0033857682122091382,
+      "median_interval_ms": 16.52219999997821,
+      "max_interval_ms": 19.08640000010564
+    },
+    {
+      "target_a": 0.1,
+      "mean_iq_a": 0.09968518518518518,
+      "mean_rmse_a": 0.0035104586932410867,
+      "median_interval_ms": 16.275350000038696,
+      "max_interval_ms": 18.45069999990301
+    },
+    {
+      "target_a": -0.1,
+      "mean_iq_a": -0.09983333333333334,
+      "mean_rmse_a": 0.0026123179017888197,
+      "median_interval_ms": 16.3307166665921,
+      "max_interval_ms": 20.52670000011858
+    }
+  ],
+  "highres": [
+    {
+      "target_a": 0.05,
+      "mean_iq_a": 0.04985175438596491,
+      "mean_rmse_a": 0.003342572097674374,
+      "median_interval_ms": 10.472100000015416,
+      "max_interval_ms": 11.02919999993901
+    },
+    {
+      "target_a": -0.05,
+      "mean_iq_a": -0.049298245614035084,
+      "mean_rmse_a": 0.0029017066013315453,
+      "median_interval_ms": 10.311600000022736,
+      "max_interval_ms": 11.126400000193826
+    },
+    {
+      "target_a": 0.1,
+      "mean_iq_a": 0.09998148148148148,
+      "mean_rmse_a": 0.003087292951311547,
+      "median_interval_ms": 10.243966666621418,
+      "max_interval_ms": 11.004799999682291
+    },
+    {
+      "target_a": -0.1,
+      "mean_iq_a": -0.10014923747276688,
+      "mean_rmse_a": 0.0031833923144463814,
+      "median_interval_ms": 10.475016666608402,
+      "max_interval_ms": 11.068599999816797
+    }
+  ]
+}

@@ -319,7 +319,7 @@ class Controller:
                 trace = dict(self._state["telemetry"])
                 encoder = encoder_readout(self._state, now)
             self._event("sample", timestamp=now, iq_a=feedback["iq_a"],
-                        velocity_rad_s=feedback["velocity_rad_s"],
+                        velocity_rad_s=None if encoder.velocity_saturated else feedback["velocity_rad_s"],
                         angle_rad=encoder.angle_rad, angle_deg=encoder.angle_deg,
                         rpm=encoder.rpm, angle_valid=encoder.valid, angle_age_ms=encoder.age_ms,
                         **{key: trace.get(key) for key in ("id_a", "iq_reference_a", "vd_v", "vq_v")})
@@ -923,7 +923,7 @@ class Controller:
             self._first_ack = 0.0
             self._align_seen = False
         self._motion = (opcode, value, auxiliary, expected)
-        self._next_send = time.monotonic()
+        self._next_send = time.perf_counter()
         self._update(running=True, stop_confirmed=False, error="")
         self._log(f"持续 CAN 命令：{opcode.name} {value} {auxiliary}（最长 60 秒）")
 
@@ -953,13 +953,15 @@ class Controller:
             if int(opcode) in (1, 2) and not all(status.get(key) for key in
                     ("sensor_valid", "sense_confirmed", "offset_ready", "direction_confirmed", "zero_valid")):
                 raise ControlError("电流闭环前置条件失效")
-        if now >= self._next_send:
-            if now - self._next_send > 0.035:
+        # UI ages keep their original clock; 10 ms refresh uses high-resolution QPC.
+        schedule_now = time.perf_counter()
+        if schedule_now >= self._next_send:
+            if schedule_now - self._next_send > 0.035:
                 raise ControlError("CAN 命令刷新调度超时")
             self._exchange(opcode, value, auxiliary)
             if not self._first_ack:
                 self._first_ack = time.monotonic()
-            self._next_send = now + (0.05 if int(opcode) == 4 else self.PERIOD)
+            self._next_send = schedule_now + (0.05 if int(opcode) == 4 else self.PERIOD)
 
     def _parameter(self, param_id, value=None):
         self._require_stopped()

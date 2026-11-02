@@ -9,6 +9,28 @@ from desktop.telemetry import can_feedback_error, describe_faults, encoder_reado
 
 
 class EncoderDisplayTests(unittest.TestCase):
+    def test_wire_endpoints_do_not_become_measured_rpm(self):
+        for fast in (False, True):
+            for speed in (-32.768, 32.767):
+                with self.subTest(fast=fast, speed=speed):
+                    state = self.state()
+                    state['status']['velocity_rad_s'] = speed
+                    if fast:
+                        state['received']['fast'] = 100.
+                        state['fast'] = dict(sensor_valid=True, angle_rad=1., velocity_rad_s=speed)
+                    value = encoder_readout(state, 100.01)
+                    self.assertTrue(value.valid)
+                    self.assertTrue(value.velocity_saturated)
+                    self.assertIsNone(value.rpm)
+                    self.assertIsNone(value.velocity_rad_s)
+
+    def test_inside_wire_boundary_still_displays_speed(self):
+        state = self.state()
+        state['status']['velocity_rad_s'] = 32.766
+        value = encoder_readout(state, 100.01)
+        self.assertFalse(value.velocity_saturated)
+        self.assertAlmostEqual(value.rpm, 32.766 * 60 / math.tau)
+
     def state(self):
         return dict(connected=True, status=dict(sensor_valid=True, velocity_rad_s=math.tau),
                     telemetry=dict(angle_rad=math.pi/2), received=dict(status=100., trace_2=99.98))

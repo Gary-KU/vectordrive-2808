@@ -49,6 +49,7 @@ class EncoderReadout:
     velocity_rad_s: float | None = None
     rpm: float | None = None
     age_ms: float | None = None
+    velocity_saturated: bool = False
 
     @property
     def valid(self):
@@ -81,15 +82,19 @@ def encoder_readout(snapshot, now=None):
     speed = values.get('velocity_rad_s') if fast_present else status.get("velocity_rad_s")
     if not isinstance(speed, (int, float)) or not math.isfinite(speed):
         speed = None
+    # Wire endpoints may be clipped: retain angle, suppress a misleading rpm.
+    velocity_saturated = speed in (-32.768, 32.767)
+    if velocity_saturated:
+        speed = None
     rpm = speed * 60 / math.tau if speed is not None else None
     trace_time = received.get('fast' if fast_present else 'trace_2')
     if trace_time is None:
-        return EncoderReadout("waiting_angle", velocity_rad_s=speed, rpm=rpm)
+        return EncoderReadout("waiting_angle", velocity_rad_s=speed, rpm=rpm, velocity_saturated=velocity_saturated)
     age = (now - trace_time) * 1000
     if not 0 <= age <= DISPLAY_TIMEOUT_S * 1000:
-        return EncoderReadout("angle_stale", velocity_rad_s=speed, rpm=rpm, age_ms=age)
+        return EncoderReadout("angle_stale", velocity_rad_s=speed, rpm=rpm, age_ms=age, velocity_saturated=velocity_saturated)
     angle = values.get("angle_rad")
     if not isinstance(angle, (int, float)) or not math.isfinite(angle):
-        return EncoderReadout("waiting_angle", velocity_rad_s=speed, rpm=rpm, age_ms=age)
+        return EncoderReadout("waiting_angle", velocity_rad_s=speed, rpm=rpm, age_ms=age, velocity_saturated=velocity_saturated)
     angle = angle % math.tau
-    return EncoderReadout("valid", angle, math.degrees(angle), speed, rpm, age)
+    return EncoderReadout("valid", angle, math.degrees(angle), speed, rpm, age, velocity_saturated)

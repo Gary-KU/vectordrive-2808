@@ -882,6 +882,8 @@ class FocDesktopUI:
                      "status_stale": "状态反馈已过期", "sensor_invalid": "编码器未就绪 / 无效",
                      "waiting_angle": "等待角度页反馈", "angle_stale": "角度反馈已过期"}
         self.angle_quality.set("模拟角度 · 不读取板子" if simulator and encoder.valid else qualities[encoder.quality])
+        if encoder.valid and encoder.velocity_saturated:
+            self.angle_quality.set("角度有效；转速达到 CAN 编码边界，实际转速未知")
         self.encoder_quality_label.configure(foreground=COLORS["accent"] if encoder.valid else COLORS["amber"])
         node = status.get("node", snapshot.get('node', 1))
         self.angle_detail.set(("SIM / 模拟数据 · " if simulator else f"0x{0x700+node:03X} / 快速反馈 · " if 'fast' in received else f"0x{0x580+node:03X} / page 2 · ") +

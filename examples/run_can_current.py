@@ -91,7 +91,8 @@ class CurrentRunner:
     MAX_SEND_GAP_S = 0.050
 
     def __init__(self, bus: Any, settings: Settings, *, message_factory: Callable[..., Any],
-                 clock: Callable[[], float] = time.monotonic,
+                 # Windows monotonic can be 15.625 ms; QPC supports the 10 ms period.
+                 clock: Callable[[], float] = time.perf_counter,
                  log: Callable[[str], None] = print):
         settings.validate()
         self.bus, self.settings = bus, settings
