@@ -1,5 +1,13 @@
 # CAN 电机调试台
 
+## 界面预览
+
+以下为 Windows 上位机实际窗口，截图时未连接硬件；参数编辑器中的数值不是实板读回。
+
+![监测总览](images/can-desktop-overview.png)
+
+![参数调试](images/can-desktop-parameters.png)
+
 [下载 Windows 上位机](https://github.com/Gary-KU/vectordrive-2808/releases/latest)：完整解压后运行目录中的 EXE。下文 dist 路径用于本地源码打包。当前实测节点为 7，新板默认节点为 1。
 
 新版采用浅色、少边框的界面：左侧按连接后的检查/校准、设置目标、启动/更新和停止排列；右侧分为监测总览、参数、终端、CAN 帧。连接后保持停机，编辑目标不会立即发出运动指令。启动按钮会显示缺少的前置条件；运行时模式锁定，目标需要显式点击“更新目标”。STOP 和急停始终可见。

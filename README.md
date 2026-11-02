@@ -51,6 +51,21 @@
 
 电流环在板内按 2 kHz 执行，速度外环配置为 1 kHz；PC 通过 CAN 更新目标，不参与每拍 PI 运算。速度外环已有软件植物模型回归，**本次没有完成实板速度整定**。固件可选择 2808 / 7 极对与 4015 / 11 极对，本页性能数值仅对应 2808。
 
+## 中文上位机界面
+
+最新版 Windows 程序的真实窗口截图，展示连接设置、控制区、机械角度表盘、趋势曲线与参数编辑器。截图时保持未连接，参数编辑值不代表实板读回结果。
+
+![CAN 上位机监测总览](docs/images/can-desktop-overview.png)
+
+<details>
+<summary>展开参数调试界面</summary>
+
+![CAN 上位机参数调试](docs/images/can-desktop-parameters.png)
+
+</details>
+
+[下载 Windows 上位机](https://github.com/Gary-KU/vectordrive-2808/releases/latest) · [完整使用说明](docs/CAN_WORKBENCH.md)
+
 ## 快速开始
 
 ### Windows 上位机
