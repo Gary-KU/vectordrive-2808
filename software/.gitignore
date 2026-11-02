@@ -1,0 +1,12 @@
+/build/
+/MDK-ARM/Objects/
+/MDK-ARM/Listings/
+/MDK-ARM/ObjectsOpenLoopTest/
+/MDK-ARM/ListingsOpenLoopTest/
+/MDK-ARM/*.uvguix.*
+/MDK-ARM/*.uvoptx
+!/MDK-ARM/GimbalFOC.uvoptx
+/MDK-ARM/DebugConfig/
+/MDK-ARM/build.log
+/MDK-ARM/build_openloop.log
+/MDK-ARM/*.bak

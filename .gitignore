@@ -1,4 +1,6 @@
-Thumbs.db
-.DS_Store
-*.tmp
-*.log
+/tmp/
+/build/
+__pycache__/
+*.py[cod]
+/.venv-can/
+/dist/

@@ -1,0 +1,14 @@
+; Last 4 KiB reserved for calibration + CAN node ID; 2 KiB stack, zero heap.
+LR_IROM1 0x08000000 0x0000F000 {
+  ER_IROM1 0x08000000 0x0000F000 {
+    *.o (RESET, +First)
+    *(InRoot$$Sections)
+    .ANY (+RO)
+  }
+  RW_IRAM1 0x20000000 0x00004800 {
+    .ANY (+RW +ZI)
+  }
+  RW_STACK 0x20004800 UNINIT 0x00000800 {
+    startup_stm32f103xb_arm.o (STACK)
+  }
+}

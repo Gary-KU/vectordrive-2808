@@ -1,0 +1,103 @@
+[
+  {
+    "target_a": 0.05,
+    "timeout_test": false,
+    "iq_frames": 52,
+    "stop_acknowledged": true,
+    "passed": true,
+    "samples": 90,
+    "mean_iq_a": 0.0467,
+    "rmse_a": 0.006984904357891303,
+    "peak_abs_velocity_rad_s": 32.767,
+    "stop_ack_ms": 2.337299999908282,
+    "timeout_from_last_tx_ms": null,
+    "command_interval_ms": {
+      "n": 51,
+      "min": 10.515300000179195,
+      "median": 16.528299999890805,
+      "p95": 18.39469999981702,
+      "max": 19.857499999943684
+    }
+  },
+  {
+    "target_a": -0.05,
+    "timeout_test": false,
+    "iq_frames": 52,
+    "stop_acknowledged": true,
+    "passed": true,
+    "samples": 88,
+    "mean_iq_a": -0.04679545454545454,
+    "rmse_a": 0.005908391567007973,
+    "peak_abs_velocity_rad_s": 32.768,
+    "stop_ack_ms": 2.6155000000471773,
+    "timeout_from_last_tx_ms": null,
+    "command_interval_ms": {
+      "n": 51,
+      "min": 2.5425999999697524,
+      "median": 16.545500000120228,
+      "p95": 19.090799999958108,
+      "max": 20.19590000008975
+    }
+  },
+  {
+    "target_a": 0.1,
+    "timeout_test": false,
+    "iq_frames": 52,
+    "stop_acknowledged": true,
+    "passed": true,
+    "samples": 89,
+    "mean_iq_a": 0.0746629213483146,
+    "rmse_a": 0.04138297429858991,
+    "peak_abs_velocity_rad_s": 32.767,
+    "stop_ack_ms": 2.3598000000220054,
+    "timeout_from_last_tx_ms": null,
+    "command_interval_ms": {
+      "n": 51,
+      "min": 9.377800000038405,
+      "median": 16.146100000014485,
+      "p95": 20.221700000092824,
+      "max": 20.580699999982244
+    }
+  },
+  {
+    "target_a": -0.1,
+    "timeout_test": false,
+    "iq_frames": 52,
+    "stop_acknowledged": true,
+    "passed": true,
+    "samples": 89,
+    "mean_iq_a": -0.07074157303370786,
+    "rmse_a": 0.04230626696742578,
+    "peak_abs_velocity_rad_s": 32.768,
+    "stop_ack_ms": 3.283000000010361,
+    "timeout_from_last_tx_ms": null,
+    "command_interval_ms": {
+      "n": 51,
+      "min": 3.2988999998906365,
+      "median": 16.21249999993779,
+      "p95": 19.262700000126642,
+      "max": 20.2747000000727
+    }
+  },
+  {
+    "target_a": 0.05,
+    "timeout_test": true,
+    "iq_frames": 52,
+    "stop_acknowledged": true,
+    "timeout_observed_after_stream_ms": 78.99999999995089,
+    "passed": true,
+    "samples": 89,
+    "mean_iq_a": 0.047348314606741576,
+    "rmse_a": 0.006126017457340492,
+    "peak_abs_velocity_rad_s": 32.767,
+    "stop_ack_ms": 2.2427999999763415,
+    "timeout_from_last_tx_ms": 105.791599999975,
+    "command_interval_ms": {
+      "n": 51,
+      "min": 10.972300000048563,
+      "median": 16.218099999832702,
+      "p95": 19.12579999998343,
+      "max": 19.37610000004497
+    }
+  }
+]

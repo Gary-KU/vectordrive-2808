@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "motor": "4015 / 11 极对 / 14 V",
+  "metadata": {
+    "source": "editor_values",
+    "note": "正式默认编辑值示例；导入仅填写电脑编辑器，不发送 CAN，不代表已读取板上参数。"
+  },
+  "parameters": {
+    "current_kp": 1.0,
+    "current_ki": 1000.0,
+    "iq_limit": 1.0,
+    "voltage_limit": 5.0,
+    "iq_slew": 1.0,
+    "speed_kp": 0.03,
+    "speed_ki": 0.1,
+    "speed_limit": 30.0,
+    "bus_voltage": 14.0
+  }
+}

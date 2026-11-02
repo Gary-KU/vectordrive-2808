@@ -1,0 +1,11 @@
+/* Generated from config/parameters.json by tools/generate_parameters.py; do not edit. */
+/* Intentionally no include guard: this is a repeatable X-macro list. */
+FOC_PARAMETER(CURRENT_KP, 1, current_kp_v_per_a, MOTOR_CURRENT_KP, 0.0f, 5.0f, 0)
+FOC_PARAMETER(CURRENT_KI, 2, current_ki_v_per_a_s, MOTOR_CURRENT_KI, 0.0f, 2000.0f, 0)
+FOC_PARAMETER(IQ_LIMIT, 3, iq_limit_a, MOTOR_CURRENT_LIMIT_A, 0.01f, MOTOR_IQ_REQUEST_MAX_A, 0)
+FOC_PARAMETER(VOLTAGE_LIMIT, 4, voltage_limit_v, MOTOR_VOLTAGE_LIMIT_V, 0.1f, 5.0f, 0)
+FOC_PARAMETER(IQ_SLEW, 5, iq_slew_a_per_s, MOTOR_IQ_SLEW_A_PER_S, 0.01f, 10.0f, 0)
+FOC_PARAMETER(SPEED_KP, 6, speed_kp_a_per_rad_s, MOTOR_SPEED_KP, 0.0f, 1.0f, 0)
+FOC_PARAMETER(SPEED_KI, 7, speed_ki_a_per_rad, MOTOR_SPEED_KI, 0.0f, 10.0f, 0)
+FOC_PARAMETER(SPEED_LIMIT, 8, speed_limit_rad_s, MOTOR_SPEED_LIMIT_RAD_S, 0.1f, 30.0f, 0)
+FOC_PARAMETER(BUS_VOLTAGE, 9, vbus_v, MOTOR_BUS_VOLTAGE_V, 8.0f, 30.0f, 1)
