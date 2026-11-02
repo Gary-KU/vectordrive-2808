@@ -55,7 +55,7 @@
 
 Windows 上位机的真实窗口截图，展示连接设置、控制区、机械角度表盘、趋势曲线与参数编辑器。总览图已连接 PCAN / 节点 7，反馈正常，截图时处于 STOP、驱动关闭；下方参数页为未连接时的编辑器展示，编辑值不代表实板读回结果。
 
-![CAN 上位机监测总览](docs/images/can-desktop-overview.png)
+![CAN 上位机监测总览](docs/images/can-desktop-node7-live.png)
 
 <details>
 <summary>展开参数调试界面</summary>

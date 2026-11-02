@@ -4,7 +4,7 @@
 
 以下为 Windows 上位机实际窗口。监测总览已连接 PCAN / 节点 7，反馈正常，截图时为 STOP、驱动关闭；参数页截图未连接硬件，编辑器数值不是实板读回。
 
-![监测总览](images/can-desktop-overview.png)
+![监测总览](images/can-desktop-node7-live.png)
 
 ![参数调试](images/can-desktop-parameters.png)
 
