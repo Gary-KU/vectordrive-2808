@@ -2,6 +2,20 @@
 
 测试日期：2026-11-02，Asia/Shanghai。对象为用户确认的 2808 电机、7 极对、CAN 节点 **7**。DAPLink / CMSIS-DAP 和 PCAN-USB 均实际接入。下面数值来自本次实板运行，植物模型测试单列。
 
+## 实测曲线
+
+以下图片直接由归档原始帧绘制，未做平滑、插值补点或删去异常值。蓝线为实际反馈，橙色虚线为请求目标；浅绿色区间对应报告统计窗口。
+
+![实测性能总览](images/performance-20261102/overview.png)
+
+![四组正反向电流跟随](images/performance-20261102/current-tracking.png)
+
+![CAN 延迟分布与反馈周期](images/performance-20261102/can-performance.png)
+
+![停止续发后的超时停机](images/performance-20261102/timeout-stop.png)
+
+图片提供 PNG 与同名 SVG。使用 `python -m pip install matplotlib` 后，在仓库根目录执行 `python tools/plot_benchmark.py` 即可从证据压缩包重新生成；本脚本不连接或控制硬件。Windows 自动使用微软雅黑字体，其他系统需安装相应中文字体。
+
 ## 可用于介绍项目的实测亮点
 
 > VectorDrive 2808 在 STM32F103 Cortex-M3 上实现 24 kHz PWM、约 2 kHz 同步采样，并通过 1 Mbps CAN 提供约 195 Hz 快速机械反馈。60 秒实板通信测试中，592 条停机/只读请求全部获得成功执行 ACK，主机往返延迟中位数 2.76 ms、P95 3.65 ms。空载 ±50 mA 短时电流测试的平均反馈为 +46.7 / −46.8 mA；停止续发目标后，约 105.8 ms 观察到超时停机状态。

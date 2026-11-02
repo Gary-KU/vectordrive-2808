@@ -4,6 +4,10 @@
 
 [**下载 Windows 上位机与固件**](https://github.com/Gary-KU/vectordrive-2808/releases/latest) · [**实板性能报告**](docs/PERFORMANCE_20261102.md) · [上位机说明](docs/CAN_WORKBENCH.md) · [CAN 协议](docs/CAN_PROTOCOL.md) · [固件构建](FIRMWARE_GUIDE.md)
 
+![VectorDrive 2808 实测性能曲线](docs/images/performance-20261102/overview.png)
+
+[电流跟随全图](docs/images/performance-20261102/current-tracking.png) · [CAN 延迟与反馈周期](docs/images/performance-20261102/can-performance.png) · [断流停机曲线](docs/images/performance-20261102/timeout-stop.png)
+
 ## 实测性能，一眼看懂
 
 2026-11-02，2808 / 7 极对 / 节点 7，DAPLink + PCAN-USB 实板测试：
